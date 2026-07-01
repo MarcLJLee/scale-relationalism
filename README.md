@@ -1,5 +1,8 @@
 # Scale-Relationalism
 
+### 🧪 프로그래머의 과학 시험 — 물리 직관을 말이 아니라 코드로 반증대에 올린다
+*A programmer's science experiment: putting a physics intuition on trial with code, not prose*
+
 > 물리 상수와 실재의 규정은 절대가 아니라 **관측자–대상 스케일 비율**에서 드러난다는
 > 가설을, 최소 검증가능한 벽돌 단위로 형식화·계산·검증해나가는 연구 프로젝트.
 
