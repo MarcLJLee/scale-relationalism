@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>스케일-관계론 (Scale-Relationalism) — 논문 개요</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#5b6472; --line:#e3e6ea;
+    --accent:#2b5c8a; --accent-soft:#eef4fa;
+    --supported:#1f7a4d; --novel:#a5551f; --frontier:#5b3f9e;
+    --bg:#fbfbfa; --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic",system-ui,sans-serif;
+    line-height:1.75; letter-spacing:-0.005em;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:820px; margin:0 auto; padding:64px 28px 120px;}
+  header.doc{border-bottom:2px solid var(--ink); padding-bottom:28px; margin-bottom:44px;}
+  .kicker{font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:700; margin-bottom:14px;}
+  h1{font-size:2.05rem; line-height:1.28; margin:0 0 10px; font-weight:800; letter-spacing:-0.02em;}
+  .subtitle{font-size:1.08rem; color:var(--muted); font-weight:500; margin:0;}
+  .meta{margin-top:22px; font-size:.85rem; color:var(--muted);}
+
+  h2{font-size:1.3rem; margin:56px 0 16px; padding-top:14px; font-weight:750; letter-spacing:-0.015em; border-top:1px solid var(--line);}
+  h2 .num{color:var(--accent); font-weight:800; margin-right:.5em;}
+  h3{font-size:1.02rem; margin:28px 0 8px; font-weight:700;}
+  p{margin:0 0 14px;}
+
+  .abstract{background:var(--accent-soft); border-radius:12px; padding:24px 26px; font-size:.98rem;}
+  .abstract .lbl{font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); font-weight:700; display:block; margin-bottom:8px;}
+
+  ul,ol{margin:0 0 16px; padding-left:1.3em;}
+  li{margin:0 0 9px;}
+  code,.mono{font-family:"SF Mono",ui-monospace,"JetBrains Mono",Menlo,monospace; font-size:.9em; background:#f0f1f3; padding:.1em .4em; border-radius:5px;}
+
+  .tag{display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.03em; padding:.16em .6em; border-radius:999px; vertical-align:middle; margin-right:.35em; white-space:nowrap;}
+  .t-sup{background:#e5f3ec; color:var(--supported);}
+  .t-nov{background:#f7ece2; color:var(--novel);}
+  .t-fro{background:#efeafa; color:var(--frontier);}
+
+  .legend{display:flex; gap:16px; flex-wrap:wrap; font-size:.82rem; color:var(--muted); margin:18px 0 0;}
+  .legend span{display:inline-flex; align-items:center; gap:6px;}
+  .dot{width:9px; height:9px; border-radius:50%; display:inline-block;}
+
+  .postulate{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:8px; padding:16px 20px; margin:0 0 14px;}
+  .postulate .pid{font-weight:800; color:var(--accent);}
+
+  .note{background:#fffaf0; border:1px solid #f0e2c8; border-radius:10px; padding:18px 22px; font-size:.94rem; margin:24px 0;}
+  .note .lbl{font-weight:700; color:#8a6d2f; display:block; margin-bottom:6px; font-size:.82rem; letter-spacing:.06em; text-transform:uppercase;}
+
+  .entry{margin:0 0 12px;}
+  .entry b{font-weight:700;}
+
+  footer.doc{margin-top:72px; padding-top:24px; border-top:1px solid var(--line); font-size:.82rem; color:var(--muted);}
+  a{color:var(--accent);}
+
+  @media (max-width:560px){
+    .wrap{padding:40px 18px 80px;}
+    h1{font-size:1.6rem;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="doc">
+    <div class="kicker">Working Paper · Outline</div>
+    <h1>스케일-관계론 (Scale-Relationalism)</h1>
+    <p class="subtitle">물리 상수와 실재의 규정은 절대가 아니라 관측자–대상 스케일 비율에서 드러난다</p>
+    <div class="meta">개요 초안 · 형식화 및 실험 검증을 위한 뼈대</div>
+    <div class="legend">
+      <span><span class="dot" style="background:var(--supported)"></span> 이미 뒷받침됨</span>
+      <span><span class="dot" style="background:var(--novel)"></span> 새로운 주장</span>
+      <span><span class="dot" style="background:var(--frontier)"></span> 최전선과 정합</span>
+    </div>
+  </header>
+
+  <section class="abstract">
+    <span class="lbl">Abstract</span>
+    <p style="margin:0;">물리학의 “절대적” 요소들 — 정지 기준, 관찰자, 스케일, 그리고 상수 <span class="mono">c·ℏ·G</span> — 은 세계가 본래 품은 고정된 성질이 아니라, <b>관측자와 대상 사이의 스케일 비율에서 비로소 드러나는 특징</b>이라고 제안한다. 물리적으로 불변인 내용은 오직 <b>무차원 비율</b>이 담고, 차원을 가진 상수는 그 비율을 만들기 위한 <b>환율(변환 계수)</b>이자 특정 거칠기(coarse-graining) 스케일에서의 <b>창발적 눈금</b>이다. 이 관점에서 “양자/고전”, “실체/사건”, “지속/찰나”의 구별은 절대적 범주가 아니라 스케일 비율의 함수다.</p>
+  </section>
+
+  <h2><span class="num">1</span>동기와 핵심 명제</h2>
+  <p><b>중심 명제.</b> <i>어떤 법칙·거동·범주가 드러나는가는 대상의 절대 크기가 아니라 관측자–대상 스케일 비율이 결정한다.</i> 절대적으로 보이는 상수들은 그 비율을 재는 도구이거나, 특정 스케일에서 창발한 유효량이다.</p>
+  <p>통일이론 탐구의 전제(“스케일을 관통하는 불변의 법칙이 있다”)를 <b>비선형·비율 의존적</b> 형태로 재정식화한다.</p>
+
+  <h2><span class="num">2</span>공준 (Postulates)</h2>
+  <p style="color:var(--muted); font-size:.92rem;">형식화·공격 가능하도록 명시한다.</p>
+
+  <div class="postulate">
+    <span class="tag t-sup">이미 부분 확립</span><br>
+    <span class="pid">P1 · 비율 우선성</span> — 물리적 의미는 무차원 비율에만 있다. <span class="mono">c·ℏ·G</span>의 수치는 단위 규약(인간 스케일)의 산물이다.
+  </div>
+  <div class="postulate">
+    <span class="tag t-sup">이미 확립</span><br>
+    <span class="pid">P2 · 스케일에서 드러나는 국면</span> — 어떤 법칙이 드러나는지는 무차원 비율이 정한다: 양자/고전 = <span class="mono">λ_dB / L</span>, 난류/층류 = 레이놀즈 수, 상대론 여부 = <span class="mono">v/c</span>, 곡률 = <span class="mono">L / R_곡률</span>.
+  </div>
+  <div class="postulate">
+    <span class="tag t-nov">새로운 재해석</span><br>
+    <span class="pid">P3 · 관측자-관계적 지평</span> — <span class="mono">c</span> ≡ 관측자의 인과·정보 지평이 확장되는 최대 속도, <span class="mono">ℏ</span> ≡ 관측자 분해능의 하한. 상수는 “세계 저편의 성질”이 아니라 <b>아는 자와 알려지는 것 사이의 경계선</b>이다.
+  </div>
+  <div class="postulate">
+    <span class="tag t-fro">최전선과 정합</span><br>
+    <span class="pid">P4 · 비근본성 / 창발</span> — <span class="mono">c·ℏ</span> 및 시공간은 더 근본적인 비-시공간적 구조에서 특정 스케일에 창발한다(아날로그 중력, 홀로그래피).
+  </div>
+  <div class="postulate">
+    <span class="tag t-nov">새로운 주장</span><br>
+    <span class="pid">P5 · 실체/사건의 상대성</span> — 무엇이 “지속하는 실체”이고 무엇이 “명멸하는 사건”인지는 (관측자 시간 스케일 / 과정 시간 스케일) 비율이 규정한다. 별은 우리에겐 실체, 충분히 큰 관측자에겐 반짝임이다.
+  </div>
+
+  <h2><span class="num">3</span>기존 물리와의 관계 <span style="font-weight:500; font-size:.9rem; color:var(--muted);">(정직한 지형도)</span></h2>
+  <div class="entry"><span class="tag t-sup">뒷받침</span> 무차원 비율의 우선성; 재규격화군(스케일에 따른 비선형 running); 임계현상의 보편성; 아날로그 중력의 <b>창발적 유효-c</b>(BEC 음향 지평선·아날로그 호킹 복사).</div>
+  <div class="entry"><span class="tag t-fro">정합적 최전선</span> 창발 시공간(AdS/CFT, ER=EPR, 얽힘으로 짜인 공간), 관계론적 양자역학, 엔트로피 중력.</div>
+  <div class="entry"><span class="tag t-nov">새로운 기여</span> 위 조각들을 P1–P5의 <b>단일 관측자-관계적 원리</b>로 묶고, “실체/사건”·“지속/찰나” 같은 존재론적 범주까지 같은 비율 원리로 환원.</div>
+
+  <h2><span class="num">4</span>형식화 목표 <span style="font-weight:500; font-size:.9rem; color:var(--muted);">(수학 트랙)</span></h2>
+  <ol>
+    <li><b>국면 분류 정리</b> — “드러나는 법칙 = 무차원 비율의 함수”를 하나의 분류 사상(map)으로 정식화하고, 각 비율 축에서 국면 경계(crossover)를 도출.</li>
+    <li><b>창발적 불변속도의 장난감 모형</b> — 비-시공간적 이산 구조(예: 얽힘 그래프)에서 로런츠형 불변속도 <span class="mono">c</span>가 특정 coarse-graining 스케일에 emerge하고, 그 <span class="mono">c</span>가 스케일 의존적으로 어떻게 바뀌는지 유도.</li>
+    <li><b>환율 재구성</b> — <span class="mono">c·ℏ·G</span>를 명시적으로 “비율 생성 연산자”로 재정의하고, 자연단위(=1)에서 남는 것이 순수 비율뿐임을 형식적으로 보이기.</li>
+    <li><b>바닥 문제의 형식화</b> — “모든 절대를 관계로 녹일 수 있는가”를 정량화. 관계 구조가 성립하기 위한 최소 불변량이 반드시 존재하는지(관계항–관계 규칙의 필요성) 정리/반례로.</li>
+  </ol>
+
+  <h2><span class="num">5</span>예측과 실험 <span style="font-weight:500; font-size:.9rem; color:var(--muted);">(물리 트랙)</span></h2>
+  <ul>
+    <li><b>창발-c의 흔적</b> — <span class="mono">c</span>가 근본이 아니라 창발이면 플랑크 근처에서 로런츠 불변성 미세 붕괴 → <b>고에너지 광자의 에너지 의존적 지연</b>. GRB 도달시간차 관측으로 검증(현재 상한 존재, 계속 개선 중).</li>
+    <li><b>무차원 상수의 맥락 의존성</b> — 상수가 스케일·환경에서 “드러나는” 것이라면 <span class="mono">α</span>(미세구조상수)가 우주 시간·환경에 따라 미세 변동할 여지 → 분광 관측 재분석.</li>
+    <li><b>국면 경계의 실험적 지도화 (P2/P5)</b> — 물질파 간섭계로 질량을 키워가며 양자/고전 “드러남” 경계가 스케일 비율의 함수임을 조작적으로 측정.</li>
+    <li><b>아날로그 중력 확장</b> — 유효-c·유효-ℏ류 양이 매질의 거칠기 스케일에 어떻게 의존하는지 정량 측정 → P4의 직접 실증.</li>
+  </ul>
+
+  <h2><span class="num">6</span>반증가능성과 경계</h2>
+  <ul>
+    <li><b>경험적으로 구별되는 하위주장</b>(창발-c → 로런츠 붕괴 신호, α 변동)과 <b>해석적 입장</b>(비율 우선성 — 표준 예측을 그대로 재현하므로 물리가 아니라 해석)을 명확히 분리.</li>
+    <li><b>원칙</b>: <i>우리 세계에 흔적을 남기면 검증 대상, 안 남기면 “말할 수 없는 바깥”.</i> 강한 판본이 반박 불가능해질수록 검증 불가능해진다는 자기제약을 논문 안에 명시.</li>
+  </ul>
+
+  <h2><span class="num">7</span>미결 문제 <span style="font-weight:500; font-size:.9rem; color:var(--muted);">(바닥)</span></h2>
+  <ul>
+    <li><b>관계항–관계의 순환</b> — 절대(<span class="mono">c</span>)를 관계로 녹이면 그 관계를 성립시키는 새 근본 구조가 바닥에 나타난다. 절대는 사라지지 않고 <b>자리를 옮긴다.</b></li>
+    <li>“아무 고정점도 없는 순수 관계”가 논리적으로 가능한가 — 물리학·형이상학의 미해결.</li>
+  </ul>
+
+  <h2><span class="num">8</span>다음 단계</h2>
+  <ul>
+    <li><b>수학</b> — §4-2(창발적 불변속도 장난감 모형)부터. 가장 작고 검증 가능한 조각.</li>
+    <li><b>실험</b> — 기존 GRB 도달시간·α 변동 데이터 재분석(신규 장비 불필요) → 저비용 첫 관문.</li>
+    <li><b>협업</b> — 아날로그 중력 그룹(BEC/광학). P4를 실험실에서 직접 두드릴 수 있는 유일한 창구.</li>
+  </ul>
+
+  <div class="note">
+    <span class="lbl">정직한 한 줄</span>
+    이 개요의 <b>약한 판본</b>(비율 우선성, 국면 = 비율의 함수)은 거의 확립되어 “정리·재해석” 작업이고, <b>강한 판본</b>(모든 절대가 관계에서 창발, 실체/사건의 상대성)은 창발 시공간이라는 살아있는 프로그램에 걸린 <b>미확정 베팅</b>이다. 현실적 진입점은 §5의 <b>관측 데이터 재분석</b>과 §4-2의 <b>장난감 모형</b> 두 개. 여기서 흔적을 하나라도 잡으면 나머지가 따라온다.
+  </div>
+
+  <footer class="doc">
+    한 대화에서 여러 각도로 두드린 하나의 명제 — 절대 정지 → 절대 관찰자 → 절대 스케일 → 절대 상수를 차례로 지우며 도달한 지점. 관계로 세계를 다 설명하려 할 때 마지막으로 남는, 아직 아무도 건너지 못한 경계선 위의 초안.
+  </footer>
+
+</div>
+</body>
+</html>
