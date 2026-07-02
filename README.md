@@ -36,7 +36,8 @@ scale-relationalism/
 ├── docs/
 │   └── outline.html              ← 논문 개요 초안 (브라우저로 열기)
 ├── math/                         ← 수학 계층 (정의→명제→증명, 과학 없이)
-│   └── m01_scale_invariance.md   ← 스케일 변환과 속도의 불변성 (P1의 수학 씨앗)
+│   ├── m01_scale_invariance.md   ← 스케일 변환과 속도의 불변성 (P1의 수학 씨앗)
+│   └── m02_scale_group.md        ← 스케일 변환은 군을 이룬다 (불변성의 바닥 + 도구 상속)
 ├── story/                        ← 쉬운 말로 푼 서술 계층 (누구나 읽는 곳)
 │   ├── brick_01.md               ← 제일 빠른 속도는 원래 정해져 있을까
 │   ├── brick_02.md               ← 우리가 반쯤 틀렸다는 것을 알게 된 이야기
