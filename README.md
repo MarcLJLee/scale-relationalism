@@ -32,6 +32,7 @@
 ```
 scale-relationalism/
 ├── README.md                     ← 지금 이 문서 (진입점)
+├── FINDINGS.md                   ← 이론 현황 스냅샷 (방점 #1: 어디서 통하고 깨지는지)
 ├── docs/
 │   └── outline.html              ← 논문 개요 초안 (브라우저로 열기)
 ├── story/                        ← 쉬운 말로 푼 서술 계층 (누구나 읽는 곳)
@@ -65,6 +66,9 @@ scale-relationalism/
     ├── brick_09_coupling_unification.png
     └── requirements.txt
 ```
+
+> **중간 정산이 궁금하면 → [FINDINGS.md](FINDINGS.md)** (방점 #1: 아홉 벽돌이 어디서
+> 통하고 어디서 깨지는지 한눈에).
 
 ## 연구 로드맵 (벽돌 단위)
 
