@@ -49,7 +49,8 @@ scale-relationalism/
 │   ├── brick_06.md               ← 한 공간에 담기는 정보는 부피가 아니라 껍질
 │   ├── brick_07.md               ← 은하가 너무 빨리 돈다, 암흑물질 없이 설명하기
 │   ├── brick_08.md               ← 은하단에서는 왜 안 되는가 (이론의 한계)
-│   └── brick_09.md               ← 미시세계: 세 힘이 높은 에너지에서 (거의) 하나가 된다
+│   ├── brick_09.md               ← 미시세계: 세 힘이 높은 에너지에서 (거의) 하나가 된다
+│   └── brick_10.md               ← 얼마나 무거워지면 양자를 잃는가
 └── experiments/                  ← 검증 계층 (실행 가능한 코드·수치)
     ├── dirac_quantum_walk.py     ← brick_01: 창발하는 불변 광원뿔
     ├── dispersion_scale.py       ← brick_02: 속도는 스케일의 함수인가
@@ -60,6 +61,7 @@ scale-relationalism/
     ├── rotation_curves.py        ← brick_07: 은하 회전 + 암흑물질 대입
     ├── cluster_failure.py        ← brick_08: 은하단에서의 실패 (이론의 한계)
     ├── coupling_unification.py   ← brick_09: 미시세계 힘의 스케일 running + 통일
+    ├── decoherence_mass.py       ← brick_10: 코히런스 수명 vs 질량 (양자/고전 경계)
     ├── brick_01_lightcone.png
     ├── brick_02_dispersion.png
     ├── brick_03_dimension_flow.png
@@ -69,6 +71,7 @@ scale-relationalism/
     ├── brick_07_rotation_curves.png
     ├── brick_08_cluster_failure.png
     ├── brick_09_coupling_unification.png
+    ├── brick_10_decoherence_mass.png
     └── requirements.txt
 ```
 
@@ -91,6 +94,7 @@ scale-relationalism/
 | **brick_07** | **이론을 실제 수수께끼에 대입**: "중력이 스케일 a₀ 아래에서 변한다"를 은하에 넣으면 **암흑물질 없이 회전곡선이 평평**해지고, 뾰족한 예측(터리-피셔 M∝v⁴)까지 나온다. 은하에선 성공, 은하단·CMB에선 실패 — 살아있는 논쟁. | ✅ 검증됨 |
 | **brick_08** | **이론이 깨지는 곳**: 같은 스케일-수정 중력을 은하단에 대입하면 여전히 **약 2배 질량이 빈다**(잔여 2.2). 은하단 가속도가 a₀ 근처라 보정이 약함 → 단일 문턱 a₀로는 은하·은하단 동시 설명 불가. brick_07(성공)과 짝. | ✅ 검증됨 |
 | **brick_09** | **미시세계 버전**: 힘의 세기가 스케일(에너지)에 따라 변하고(측정된 사실), 높은 에너지로 외삽하면 세 힘이 **거의 한 점에서 통일**. 표준모형은 삼각형으로 빗나감, 초대칭 넣으면 ~2×10¹⁶ GeV에서 만남(단 미관측). 성공+미결의 짝. | ✅ 검증됨 |
+| **brick_10** | **"코히런스 최소 에너지 ↔ 질량"**: 코히런스 수명 τ를 질량의 함수로. 펜로즈-디오시 중력붕괴(E_G∼Gm²/R, speculative) vs 환경 결어긋남(established). 환경이 지배하며 τ=1초 경계 ~2×10⁴ amu — **실제 최대 물질파 중첩과 일치.** | ✅ 검증됨 |
 
 ## brick_01 — 창발하는 불변 광원뿔
 
@@ -309,6 +313,30 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
 
 그림: `brick_09_coupling_unification.png` (실선 SM=빗나감, 점선 SUSY=한 점에서 만남)
+
+## brick_10 — 코히런스를 유지하는 최소 에너지와 질량
+
+물체가 두 위치에 중첩됐을 때 두 갈래를 구별하는 **최소 에너지**와 **질량**의 관계로,
+양자/고전 경계가 질량 어디에 서는지 잰다. 코히런스 수명 `τ(m)`을 두 메커니즘으로 계산:
+
+- **펜로즈-디오시 중력 자기붕괴** (speculative): 최소 구별 에너지 = 중력 자체에너지
+  `E_G ≈ (6/5)Gm²/R`, 붕괴 시간 `τ_G ≈ ℏ/E_G`. 질량↑ → `τ_G↓`.
+- **환경 결어긋남** (established): 잔류 기체 충돌 `τ_env ≈ 1/(n·v·πR²)`.
+
+**결과** (UHV `1e-6 Pa`, 300 K, 밀도 2000 kg/m³)
+- **τ=1초 경계**: 환경 한계 `~2×10⁴ amu`, 펜로즈 한계 `~5×10¹¹ amu`.
+- 관측 영역에선 **환경 결어긋남이 훨씬 빨라 지배** — 큰 물체가 고전인 주된 이유는 환경.
+- 펜로즈 붕괴는 **완벽히 고립해도 남는 내재적 바닥**. 두 한계 사이의 간극이 곧 "펜로즈를
+  검증하려면 넘어야 할 고립의 난이도".
+- **실측 부합**: 환경 한계 `~2×10⁴ amu`가 실제 최대 물질파 중첩 실험(`~10⁴~10⁵ amu`)과 일치.
+- **정직한 단서**: 펜로즈-디오시는 speculative(부양 나노입자·지하 실험으로 시험 중), 환경
+  결어긋남은 established. brick_04(양자→고전)의 정량적 후속.
+
+```bash
+.venv/bin/python decoherence_mass.py
+```
+
+그림: `brick_10_decoherence_mass.png` (τ vs 질량, 두 메커니즘 + 실험 위치)
 
 ## 선행 연구 계보 (재발명 방지)
 
