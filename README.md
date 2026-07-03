@@ -51,7 +51,8 @@ scale-relationalism/
 │   ├── brick_08.md               ← 은하단에서는 왜 안 되는가 (이론의 한계)
 │   ├── brick_09.md               ← 미시세계: 세 힘이 높은 에너지에서 (거의) 하나가 된다
 │   ├── brick_10.md               ← 얼마나 무거워지면 양자를 잃는가
-│   └── brick_11.md               ← 빛으로 재는 양자의 경계
+│   ├── brick_11.md               ← 빛으로 재는 양자의 경계
+│   └── brick_12.md               ← 실제 실험은 어디까지 왔나
 └── experiments/                  ← 검증 계층 (실행 가능한 코드·수치)
     ├── dirac_quantum_walk.py     ← brick_01: 창발하는 불변 광원뿔
     ├── dispersion_scale.py       ← brick_02: 속도는 스케일의 함수인가
@@ -64,6 +65,7 @@ scale-relationalism/
     ├── coupling_unification.py   ← brick_09: 미시세계 힘의 스케일 running + 통일
     ├── decoherence_mass.py       ← brick_10: 코히런스 수명 vs 질량 (양자/고전 경계)
     ├── photon_decoherence.py     ← brick_11: 광자(CMB·열복사) 결어긋남 vs 질량
+    ├── experiments_vs_theory.py  ← brick_12: 실측 데이터 vs 이론
     ├── brick_01_lightcone.png
     ├── brick_02_dispersion.png
     ├── brick_03_dimension_flow.png
@@ -75,6 +77,7 @@ scale-relationalism/
     ├── brick_09_coupling_unification.png
     ├── brick_10_decoherence_mass.png
     ├── brick_11_photon_decoherence.png
+    ├── brick_12_experiments_vs_theory.png
     └── requirements.txt
 ```
 
@@ -99,6 +102,7 @@ scale-relationalism/
 | **brick_09** | **미시세계 버전**: 힘의 세기가 스케일(에너지)에 따라 변하고(측정된 사실), 높은 에너지로 외삽하면 세 힘이 **거의 한 점에서 통일**. 표준모형은 삼각형으로 빗나감, 초대칭 넣으면 ~2×10¹⁶ GeV에서 만남(단 미관측). 성공+미결의 짝. | ✅ 검증됨 |
 | **brick_10** | **"코히런스 최소 에너지 ↔ 질량"**: 코히런스 수명 τ를 질량의 함수로. 펜로즈-디오시 중력붕괴(E_G∼Gm²/R, speculative) vs 환경 결어긋남(established). 환경이 지배하며 τ=1초 경계 ~2×10⁴ amu — **실제 최대 물질파 중첩과 일치.** | ✅ 검증됨 |
 | **brick_11** | **가장 공평한 잣대 = 광자**: 기체는 빼도 광자(열복사)는 못 뺀다. 궁극의 바닥 CMB(2.7K)는 τ=1초 경계 ~20 ng(~10¹⁶ amu)까지 허용, 상온 열복사는 훨씬 강해 ~10⁹ amu. Γ∝m^(8/3)T⁹ — 무거울수록 낮은 광자에너지에도 고전화. P1의 특수화. | ✅ 검증됨 |
+| **brick_12** | **실측 데이터 vs 이론**: 물질파 간섭 질량 기록(C60 720 → 27 kDa 2019)을 이론 곡선에 얹고, "에너지 넣으니 양자→고전"의 직접 측정(C70 열결어긋남, 1500K→3000K)을 재현. 실측은 저질량에 몰려 이론과 정성 일치, **나노그램 최전선은 빈칸.** | ✅ 검증됨 |
 
 ## brick_01 — 창발하는 불변 광원뿔
 
@@ -363,6 +367,30 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
 
 그림: `brick_11_photon_decoherence.png` (CMB vs 상온 열광자, τ vs 질량)
+
+## brick_12 — 실측 데이터 vs 이론
+
+이론(brick 10·11)을 **실제 실험 수치**와 대조한다. 두 가지:
+
+**(A) 물질파 간섭 질량 기록을 이론 곡선에 얹기** (출처: 웹 검색 확인)
+- C60 720 amu (1999, Arndt·Zeilinger, Nature), C70 840 amu (2004), 유기분자 >10⁴ amu (2013),
+  올리고포르피린 **27 kDa ~2000원자** (2019, Fein, LUMI 2m — 질량 기록).
+- 모든 실측이 **저질량(~1~3×10⁴ amu)** 에 몰려 있고, 그 질량에선 이론상 코히런스 수명이 사실상
+  무한(진공+냉각이면 양자 유지 가능). **CMB·펜로즈가 무는 나노그램 경계는 아직 빈칸(최전선).**
+
+**(B) "에너지 넣으니 양자→고전" 직접 측정** (Hackermüller 2004, C70)
+- 내부온도 `~1500 K`까지 완전한 양자 간섭 → `2000 K` 위 급감 → `~3000 K` 소멸.
+  경로분리 990 nm, 광자당 +140 K. **질량 840 amu 물체를 고전화시키는 에너지 임계의 실제 수치.**
+
+**관계**: 실측은 이론 스케일링(무거울수록·뜨거울수록 결어긋남 급증)과 정성적으로 일치. 다만
+데이터가 성겨(1~3×10⁴ amu) 정량 관계식을 넓게 고정하진 못함 — 나노그램 최전선(부양 나노입자)이
+채워지면 확정. **정직 표기**: 질량은 출처 수치, Hackermüller 곡선은 보고 특징의 재구성(원 데이터 아님).
+
+```bash
+.venv/bin/python experiments_vs_theory.py
+```
+
+그림: `brick_12_experiments_vs_theory.png` (좌: 질량기록 vs 이론, 우: C70 에너지→고전 측정)
 
 ## 선행 연구 계보 (재발명 방지)
 
