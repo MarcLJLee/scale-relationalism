@@ -50,7 +50,8 @@ scale-relationalism/
 │   ├── brick_07.md               ← 은하가 너무 빨리 돈다, 암흑물질 없이 설명하기
 │   ├── brick_08.md               ← 은하단에서는 왜 안 되는가 (이론의 한계)
 │   ├── brick_09.md               ← 미시세계: 세 힘이 높은 에너지에서 (거의) 하나가 된다
-│   └── brick_10.md               ← 얼마나 무거워지면 양자를 잃는가
+│   ├── brick_10.md               ← 얼마나 무거워지면 양자를 잃는가
+│   └── brick_11.md               ← 빛으로 재는 양자의 경계
 └── experiments/                  ← 검증 계층 (실행 가능한 코드·수치)
     ├── dirac_quantum_walk.py     ← brick_01: 창발하는 불변 광원뿔
     ├── dispersion_scale.py       ← brick_02: 속도는 스케일의 함수인가
@@ -62,6 +63,7 @@ scale-relationalism/
     ├── cluster_failure.py        ← brick_08: 은하단에서의 실패 (이론의 한계)
     ├── coupling_unification.py   ← brick_09: 미시세계 힘의 스케일 running + 통일
     ├── decoherence_mass.py       ← brick_10: 코히런스 수명 vs 질량 (양자/고전 경계)
+    ├── photon_decoherence.py     ← brick_11: 광자(CMB·열복사) 결어긋남 vs 질량
     ├── brick_01_lightcone.png
     ├── brick_02_dispersion.png
     ├── brick_03_dimension_flow.png
@@ -72,6 +74,7 @@ scale-relationalism/
     ├── brick_08_cluster_failure.png
     ├── brick_09_coupling_unification.png
     ├── brick_10_decoherence_mass.png
+    ├── brick_11_photon_decoherence.png
     └── requirements.txt
 ```
 
@@ -95,6 +98,7 @@ scale-relationalism/
 | **brick_08** | **이론이 깨지는 곳**: 같은 스케일-수정 중력을 은하단에 대입하면 여전히 **약 2배 질량이 빈다**(잔여 2.2). 은하단 가속도가 a₀ 근처라 보정이 약함 → 단일 문턱 a₀로는 은하·은하단 동시 설명 불가. brick_07(성공)과 짝. | ✅ 검증됨 |
 | **brick_09** | **미시세계 버전**: 힘의 세기가 스케일(에너지)에 따라 변하고(측정된 사실), 높은 에너지로 외삽하면 세 힘이 **거의 한 점에서 통일**. 표준모형은 삼각형으로 빗나감, 초대칭 넣으면 ~2×10¹⁶ GeV에서 만남(단 미관측). 성공+미결의 짝. | ✅ 검증됨 |
 | **brick_10** | **"코히런스 최소 에너지 ↔ 질량"**: 코히런스 수명 τ를 질량의 함수로. 펜로즈-디오시 중력붕괴(E_G∼Gm²/R, speculative) vs 환경 결어긋남(established). 환경이 지배하며 τ=1초 경계 ~2×10⁴ amu — **실제 최대 물질파 중첩과 일치.** | ✅ 검증됨 |
+| **brick_11** | **가장 공평한 잣대 = 광자**: 기체는 빼도 광자(열복사)는 못 뺀다. 궁극의 바닥 CMB(2.7K)는 τ=1초 경계 ~20 ng(~10¹⁶ amu)까지 허용, 상온 열복사는 훨씬 강해 ~10⁹ amu. Γ∝m^(8/3)T⁹ — 무거울수록 낮은 광자에너지에도 고전화. P1의 특수화. | ✅ 검증됨 |
 
 ## brick_01 — 창발하는 불변 광원뿔
 
@@ -337,6 +341,28 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
 
 그림: `brick_10_decoherence_mass.png` (τ vs 질량, 두 메커니즘 + 실험 위치)
+
+## brick_11 — 가장 공평한 잣대: 광자(CMB·열복사) 결어긋남
+
+기체는 진공으로 빼지만 **광자(열복사)는 못 뺀다.** 궁극의 바닥은 **우주배경복사(CMB, 2.725 K)** —
+우주 어디든 모든 것이 잠긴 광자 목욕탕. 그래서 광자가 가장 보편적(제거 불가능)인 양자/고전 잣대다.
+열광자 산란 결어긋남(Joos-Zeh, Rayleigh) 수명 τ(m)을 계산: `Γ ∝ a⁸ T⁹ ∝ m^(8/3) T⁹`.
+
+**결과** (Δx=물체 크기, 밀도 2000 kg/m³)
+- **τ=1초 경계**: CMB(2.725 K) `~2×10⁻¹¹ kg (~20 ng, ~10¹⁶ amu)`; 상온(300 K) `~10⁹ amu`.
+- **광자는 못 뺀다** — 기체를 다 빼도 CMB가 남는 궁극의 바닥. CMB는 차가워(0.23 meV) 결어긋남이
+  느려 ~20 ng까지 허용. 그러나 물체가 상온이면 제 열복사가 ~10⁷배 강해 훨씬 작은 질량에서 고전화.
+  → 실험이 극저온으로 식히는 이유(CMB 바닥에 다가가기).
+- **네 직감 확인**: `Γ ∝ m^(8/3)·T⁹` → 무거울수록 낮은 광자에너지(차가운 CMB)에도 양자를 잃음.
+- **P1의 특수화**: (광자 에너지 / 물체 스케일) 비율이 양자/고전을 정함 = P1(관측 에너지 스케일)의 사례.
+- **정직한 단서**: Joos-Zeh Rayleigh·Δx=a 차수 추정. 광자는 실질적 최공평(제거불가), 원리적 최보편은
+  더 약한 중력(brick_10).
+
+```bash
+.venv/bin/python photon_decoherence.py
+```
+
+그림: `brick_11_photon_decoherence.png` (CMB vs 상온 열광자, τ vs 질량)
 
 ## 선행 연구 계보 (재발명 방지)
 
